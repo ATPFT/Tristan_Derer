@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-md w-96">
+        <h2 class="text-2xl mb-6 text-center">Formulaire de Contact</h2>
+        <form id="contactForm" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Nom</label>
+                <input type="text" id="nom" class="mt-1 w-full rounded-md border-gray-300 shadow-sm">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Prénom</label>
+                <input type="text" id="prenom" class="mt-1 w-full rounded-md border-gray-300 shadow-sm">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email" class="mt-1 w-full rounded-md border-gray-300 shadow-sm">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Message</label>
+                <textarea id="message" rows="4" class="mt-1 w-full rounded-md border-gray-300 shadow-sm"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
+                Envoyer
+            </button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nom = document.getElementById('nom').value;
+            const prenom = document.getElementById('prenom').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            const mailtoLink = `mailto:votre.email@example.com?subject=Contact from ${prenom} ${nom}&body=${encodeURIComponent(message)}`;
+            window.location.href = mailtoLink;
+        });
+    </script>
+</body>
+</html>
