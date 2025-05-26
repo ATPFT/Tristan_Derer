@@ -18,13 +18,13 @@
     <!-- Menu -->
     <div id="menu" style="display: none; position: absolute; top: 50%; left: 100%; transform: translate(-50%, -50%); transition: left 0.5s ease; text-align: center;">
       <div style="display: flex; justify-content: center; gap: 50px;">
-        <button id="Formation" onclick="showFormation()" class="w-[400px] h-[500px] text-center text-xl cursor-pointer bg-black bg-opacity-70 text-white border-none rounded-lg hover:scale-110 transition-transform duration-300">
+        <button id="Formation" onclick="showFormation()" style="background-image:url('https://tse1.mm.bing.net/th?id=OIP.r8xX86Sd4m9JecZs5IvrjQHaEK&pid=Api'); background-size: cover;" class=" w-[400px] h-[500px] text-center text-xl cursor-pointer bg-black bg-opacity-70 text-white border-none rounded-lg hover:scale-110 transition-transform duration-300">
           Formation & Expérience
         </button>
         <button id="langues" onclick="showLangues()" class="w-[400px] h-[500px] text-center text-xl cursor-pointer bg-black bg-opacity-70 text-white border-none rounded-lg hover:scale-110 transition-transform duration-300">
           Langues
         </button>
-        <button class="w-[400px] h-[500px] text-center text-xl cursor-pointer bg-black bg-opacity-70 text-white border-none rounded-lg hover:scale-110 transition-transform duration-300">
+        <button onclick="showLoisirs()" class="w-[400px] h-[500px] text-center text-xl cursor-pointer bg-black bg-opacity-70 text-white border-none rounded-lg hover:scale-110 transition-transform duration-300">
           Sports & Loisirs
         </button>
       </div>
@@ -33,28 +33,49 @@
       </button>
     </div>
 
+
+
     <!-- contact/quizz section -->
-     <div id="quiz-section" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; color: white; width: 80%; max-width: 600px;">
-    <h2 style="text-align: center; margin-bottom: 20px;"></h2>
-    <div class="question" style="margin-bottom: 20px;">
-        <p style="font-size: 18px; margin-bottom: 10px;">A quel point avez-vous aimée mon site ?</p>
-        <input type="text" class="answer" style="width: 100%; padding: 5px; margin-bottom: 10px;">
-    </div>
-    <div class="question" style="margin-bottom: 20px;">
-        <p style="font-size: 18px; margin-bottom: 10px;">Quelle note allez-vous me mettre ?</p>
-        <input type="text" class="answer" style="width: 100%; padding: 5px; margin-bottom: 10px;">
-    </div>
-    <div class="question" style="margin-bottom: 20px;">
-        <p style="font-size: 18px; margin-bottom: 10px;">Si vous etiez recruteur m'auriez-vous pris ?</p>
-        <input type="text" class="answer" style="width: 100%; padding: 5px; margin-bottom: 10px;">
-    </div>
-    <button onclick="checkAnswers()" style="width: 100%; padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
-        Vérifier les réponses
-    </button>
-    <button onclick="showMainMenu()" style="width: 100%; padding: 10px; background-color: #f44336; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">
+    <div id="quiz-section" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; color: white; width: 80%; max-width: 600px;">
+      <h2 style="text-align: center; margin-bottom: 20px;">Quiz de Contact</h2>
+      <p style="margin-bottom: 20px;">Pour me contacter, veuillez répondre correctement aux questions suivantes :</p>
+      <button onclick="back()" style="padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: rgba(0, 0, 0, 0.7); color: white; border: 2px solid white; border-radius: 5px; transition: all 0.3s ease; position: absolute; top: 20px; right: 20px;">
         Retour
-    </button>
-</div>
+      </button>
+      <button onclick="bruteForce()" style="padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: rgba(255, 0, 0, 0.7); color: white; border: 2px solid white; border-radius: 5px; transition: all 0.3s ease; position: absolute; top: 20px; left: 20px;">
+        Brute Force
+      </button>
+      <div id="question-container"></div>
+    </div>
+
+
+    <!-- Sport & loisirs section -->
+    <div id="loisirs" style="display: none; position: absolute; top: 50%; left: 100%; transform: translate(-50%, -50%); transition: left 0.5s ease; text-align: center; width: 90vw; max-width: 1200px;">
+      <div style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; margin-bottom: 40px;">
+        <!-- Sport -->
+        <div style="background-image: url('https://tse2.mm.bing.net/th?id=OIP.5UVNEkD8klYYeJjdmhmUyAHaHa&pid=Api'); background-size: cover; border-radius: 15px; padding: 30px 20px; min-width: 300px; flex: 1 1 300px;">
+          <h2 style="font-size: 24px; margin-bottom: 20px; background: rgba(0, 0, 0, 0); color: rgb(254, 254, 254); display: inline-block; padding: 2px 8px; border-radius: 5px;">Sport</h2>
+          <p style="text-decoration: underline; background: rgba(0, 0, 0, 0.3); color: rgb(255, 255, 255); display: inline-block; padding: 2px 8px; border-radius: 5px;">Escrime : 7 ans, compétitions internationales + diplôme d'arbitrage régional</p>
+          <p style="text-decoration: underline; background: rgba(0, 0, 0, 0.3); color: rgb(255, 255, 255); display: inline-block; padding: 2px 8px; border-radius: 5px;">Tennis : 5 ans</p>
+        </div>
+        <!-- Loisirs -->
+        <div style="background-image: url('https://tse2.mm.bing.net/th?id=OIP.DUfp8yABwnFoMBuDivPKwwHaHa&pid=Api'); border-radius: 15px; padding: 30px 20px; min-width: 300px; flex: 1 1 300px; color: white;">
+          <h2 style="font-size: 24px; color: black;">Loisirs</h2>
+          <p style=" color: black;">Conservatoire : (formation musicale, pratique individuelle et pratique en orchestre) flûte traversière</p>
+        </div>
+        <!-- Centres d'intérêts -->
+        <div style="background-image: url('https://tse1.mm.bing.net/th?id=OIP.W73TcjgMpZGRyRKYzju7gQHaEJ&cb=iwp2&pid=Api'); border-radius: 15px; padding: 30px 20px; min-width: 300px; flex: 1 1 300px; color: white;">
+          <h2 style="font-size: 24px; margin-bottom: 20px;">Centres d'intérêts</h2>
+          <p>Musique</p>
+          <p>Cinéma</p>
+          <p>Code</p>
+          <p>Hack</p>
+        </div>
+      </div>
+      <button onclick="showMainMenu()" style="padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: rgba(0, 0, 0, 0.7); color: white; border: 2px solid white; border-radius: 5px; transition: all 0.3s ease;">
+        Retour
+      </button>
+    </div>
 
     <!-- Langues Section -->
     <div id="langue" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); transition: top 0.5s ease; text-align: center; width: 90vw; max-width: 1200px;">
@@ -82,7 +103,7 @@
       <h2 style="text-align: center; font-size: 24px; margin-bottom: 20px; color: white;">Formation & Expérience</h2>
       <div style="position: absolute; top: 20px; right: 20px;">
         <button onclick="showMainMenu()" style="padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: rgba(0, 0, 0, 0.7); color: white; border: 2px solid white; border-radius: 5px; transition: all 0.3s ease;">
-            Retour
+          Retour
         </button>
       </div>
       <!-- Timeline Container -->
@@ -120,16 +141,242 @@
       <div id="year-content" style="margin-top: 40px; text-align: center; color: white;"></div>
     </div>
 
+    <script src="question.js"></script>
+    <script>
+
+            function bruteForce() {
+         const possibilities = [];
+         let found = false;
+         
+         // Générer toutes les combinaisons possibles
+         function generateCombinations(current = '', answers = [], depth = 0) {
+            if (depth === questionnaire.length) {
+               possibilities.push({ code: current, answers: [...answers], questionIndexes: [] });
+               return;
+            }
+            const question = questionnaire[depth];
+            for (let i = 0; i < question.reponses.length; i++) {
+               generateCombinations(
+                  current + `A${question.qid}_${question.reponses[i].rid}`,
+                  [...answers, {
+                     question: question.qlabel,
+                     answer: question.reponses[i].rlabel,
+                     qid: question.qid,
+                     rid: question.reponses[i].rid
+                  }],
+                  depth + 1
+               );
+            }
+         }
+
+         async function testCombination(index) {
+            if (index >= possibilities.length || found) return;
+            const combination = possibilities[index];
+
+            // Afficher la progression
+            const progressText = `Test de la combinaison ${index + 1}/${possibilities.length}`;
+            displayQuestion();
+
+            // Simuler les réponses une par une
+            for (let i = 0; i < combination.answers.length; i++) {
+               const answer = combination.answers[i];
+               
+               // Afficher la question courante
+               const container = document.getElementById('question-container');
+               container.innerHTML = `
+                  <div style="margin-bottom: 20px;">
+                     <p style="color: #4CAF50; margin-bottom: 10px;">${progressText}</p>
+                     <p style="font-size: 18px; margin-bottom: 10px;">${answer.question}</p>
+                     <div style="display: flex; flex-direction: column; gap: 10px;">
+                        ${questionnaire[i].reponses.map(reponse => `
+                           <button 
+                              style="padding: 10px; background-color: ${reponse.rid === answer.rid ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0.1)'}; 
+                              border: none; 
+                              color: ${reponse.rid === answer.rid ? 'black' : 'white'}; 
+                              cursor: pointer; 
+                              border-radius: 5px;">
+                              ${reponse.rlabel}
+                           </button>
+                        `).join('')}
+                     </div>
+                  </div>
+               `;
+
+               // Attendre avant de passer à la réponse suivante
+               await new Promise(resolve => setTimeout(resolve, 500));
+            }
+
+            try {
+               const response = await fetch(`${combination.code}.html`);
+               if (response.ok) {
+                  found = true;
+                  const container = document.getElementById('question-container');
+                  container.innerHTML += `
+                     <p style="color: #4CAF50; margin-top: 20px;">Combinaison correcte trouvée !</p>
+                  `;
+                  setTimeout(() => {
+                     window.location.href = `${combination.code}.html`;
+                  }, 1000);
+                  return;
+               }
+               setTimeout(() => testCombination(index + 1), 800);
+            } catch (error) {
+               setTimeout(() => testCombination(index + 1), 800);
+            }
+         }
+
+         generateCombinations();
+         testCombination(0);
+      }
+
+      let currentQuestion = 0;
+      let userResponses = '';
+
+      function resetQuizState() {
+      currentQuestion = 0;
+      userResponses = '';
+      const container = document.getElementById('question-container');
+      if (container) container.innerHTML = '';
+      }
+
+      function showQuizz() {
+      const menu = document.getElementById('menu');
+      const quizSection = document.getElementById('quiz-section');
+      resetQuizState();
+      menu.style.display = 'none';
+      quizSection.style.display = 'block';
+      displayQuestion();
+      }
+
+      function displayQuestion() {
+      if (currentQuestion >= questionnaire.length) {
+        checkFinalAnswers();
+        return;
+      }
+
+      const question = questionnaire[currentQuestion];
+      const container = document.getElementById('question-container');
+      container.style.display = 'block';
+      container.innerHTML = `
+        <div style="position: absolute; top: 20px; right: 20px;">
+        </div>
+        <div class="question" style="margin-bottom: 20px;">
+        <p style="font-size: 18px; margin-bottom: 10px;">${question.qlabel}</p>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+        ${question.reponses.map(reponse => `
+        <button onclick="selectAnswer(${question.qid}, ${reponse.rid})" 
+        style="padding: 10px; background-color: rgba(255, 255, 255, 0.1); border: none; color: white; cursor: pointer; border-radius: 5px;">
+        ${reponse.rlabel}
+        </button>
+        `).join('')}
+        </div>
+        </div>
+      `;
+      }
+
+            function selectAnswer(qid, rid) {
+          // Change la couleur du bouton sélectionné
+          const selectedButton = event.target;
+          const allButtons = document.querySelectorAll('.question button');
+          
+          // Réinitialise tous les boutons à leur couleur d'origine
+          allButtons.forEach(button => {
+              button.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+          });
+          
+          // Change la couleur du bouton sélectionné
+          selectedButton.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+          selectedButton.style.color = 'black';
+          
+          // Ajoute un délai avant de passer à la question suivante
+          setTimeout(() => {
+              userResponses += `A${qid}_${rid}`;
+              currentQuestion++;
+              displayQuestion();
+          }, ); // Délai de 300ms pour voir l'effet
+      }
+
+      function retryQuiz() {
+      resetQuizState();
+      displayQuestion();
+      }
+
+      function checkFinalAnswers() {
+      const filename = `${userResponses}.html`;
+      fetch(filename)
+        .then(response => {
+        if (response.ok) {
+          window.location.href = filename;
+        } else {
+          document.getElementById('question-container').style.display = 'block';
+          document.getElementById('question-container').innerHTML = `
+          <p style="text-align: center; font-size: 18px;">Suite à vos réponses, vous ne souhaitez pas être contacté.</p>
+          <button onclick="retryQuiz()" 
+          style="width: 100%; padding: 10px; background-color: #f44336; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px;">
+          Réessayer
+          </button>
+          `;
+        }
+        });
+      }
+
+      // Reset quiz state when returning to menu or when showing the quiz
+      const originalShowMainMenu = showMainMenu;
+      window.showMainMenu = function() {
+      resetQuizState();
+      // Hide the quiz section when returning to menu
+      const quizSection = document.getElementById('quiz-section');
+      if (quizSection) quizSection.style.display = 'none';
+      originalShowMainMenu();
+      };
+
+      // Always reset quiz state when showing the quiz
+      const originalShowQuizz = showQuizz;
+      window.showQuizz = function() {
+      resetQuizState();
+      originalShowQuizz();
+      };
+
+      function back(){
+      const quizSection = document.getElementById('quiz-section');
+      const quiz = document.getElementById('question-container');
+      if (quiz) {
+        quiz.style.display = 'block';
+        quiz.innerHTML = '';
+      }
+      if (quizSection) quizSection.style.display = 'none';
+      const menu = document.getElementById('menu');
+      if (menu) {
+        menu.style.display = 'block';
+        menu.style.left = '50%';
+      }
+      }
+    </script>
+
+    </script>
     <!-- Scripts -->
     <script>
       function showMainMenu() {
+        const loisirsSection = document.getElementById('loisirs');  // Correction de getElementsById
         const formationSection = document.getElementById('formation');
-        const languesSection = document.getElementById('langue');
-        const menu = document.getElementById('menu');
-        formationSection.style.display = 'none';
-        languesSection.style.display = 'none';
-        menu.style.display = 'block';
-        menu.style.left = '50%';
+        const languesSection = document.getElementById('langue');          const menu = document.getElementById('menu');
+          
+        // Cache les autres sections
+        if (loisirsSection) {
+          loisirsSection.style.display = 'none';
+        }
+        if (formationSection) {
+          formationSection.style.display = 'none';
+        }
+        if (languesSection) {
+          languesSection.style.display = 'none';
+        }
+          
+        // Affiche le menu principal
+        if (menu) {
+          menu.style.display = 'block';
+          menu.style.left = '50%';
+        }
       }
 
       function showMenu() {
@@ -141,16 +388,31 @@
           menu.style.left = '50%';
         }, 10);
       }
+      
+      function showLoisirs() {
+        const mainButton = document.getElementById('menu');
+        const menu = document.getElementById('loisirs');
+        mainButton.style.display = 'none';
+        menu.style.display = 'block';
+        setTimeout(() => {
+          menu.style.left = '50%';
+        }, 10);
+      }
+      
 
-      function showLangues(){
-          const menu = document.getElementById('menu');
-          const languesSection = document.getElementById('langue');
+      function showLangues() {
+        const menu = document.getElementById('menu');
+        const languesSection = document.getElementById('langue');
+        menu.style.transition = 'left 0.5s ease';
+        menu.style.left = '150%'; // Slide the menu to the right
+        languesSection.style.transition = 'top 0.5s ease';
+        languesSection.style.top = '-100%'; // Start above the viewport
+        languesSection.style.display = 'block';
+        setTimeout(() => {
           menu.style.display = 'none';
-          languesSection.style.display = 'block';
-          setTimeout(()=> {
-            languesSection.style.top = '50%';
-          },10);
-        }
+          languesSection.style.top = '50%'; // Slide down to center
+        }, 10);
+      }
 
       function showFormation() {
         const menu = document.getElementById('menu');
